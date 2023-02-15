@@ -1,4 +1,3 @@
-#import sys
 import openai
 
 model_to_use="text-davinci-003" # most capable
@@ -23,10 +22,3 @@ class MyOpenAI:
             )
         return str.strip(response['choices'][0]['text']), response['usage']['total_tokens']
 
-
-
-#query=sys.argv[1]
-
-#(res, usage) = chatGPT(query)
-#print(res)
-#print("\n----------------\nTokens used: "+str(usage))
