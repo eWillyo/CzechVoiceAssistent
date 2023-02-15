@@ -35,8 +35,6 @@ if __name__ == "__main__":
     stt.init_STT()
     
     tts.say_something(INIT_PHRASE)
-    #print(tts.nm2ws("Jan Hus byl upálen 6. července 1415"))
-    #print(tts.nm2ws("9 děleno 8 je 1.125"))
     
     try:
         while True:
