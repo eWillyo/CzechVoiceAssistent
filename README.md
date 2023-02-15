@@ -10,12 +10,14 @@ Except Coqui TTS and TTS libraries (and 'openai' library) installed standard way
      
 Also install 'aplay' from linux repositories (if you don't have it on your system).
 
-Note: There can be some problems with 'Numpy's version during TTS instalation due to which script may not works. Solution is upgrade numpy and numba:
+Note: There can be some problems with 'Numpy's version during TTS instalation due to which script may not works. Solution is upgrade numpy and numba after installation of all libraries:
 
      pip install --upgrade numpy
      pip install --upgrade numba
      
 And of course you'll need microphone :-)
+
+
 
 
 Currently code works only on Linux (I use 'aplay' Linux player in code to play "text to words"). I work on that - I promiss!
