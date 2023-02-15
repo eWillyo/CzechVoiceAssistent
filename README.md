@@ -8,7 +8,9 @@ Except Coqui TTS and TTS libraries (and 'openai' library) installed standard way
 
      pyaudio, webrtcvad, halo, num2words
      
-Also install 'aplay' audio player from linux repositories (if you don't have it on your system).
+Also install 'aplay' audio player from linux repositories (if you don't have it on your system):
+
+     apt-get install alsa-utils
 
 Note: There can be some problems with 'Numpy's version during TTS instalation due to which script may not works. Solution is upgrade numpy and numba after installation of all libraries:
 
