@@ -1,6 +1,7 @@
 # Czech Voice Assistent (ChatGPT)
 
-This small project of voice assistent uses ChatGPT in human's nature way. It's based on Coqui STT and TTS libraries. Third essential library you'll need is 'openai'. This library is a wrapper which sends questions and answears to ChatGPT servers. Due that, you have to be registered on [https://chat.openai.com/] and you'll need to paste to 'MyOpenAI.py' file your API key (YOUR_API_KEY). Here are instructions: [https://www.codingthesmartway.com/how-to-use-chatgpt-with-python/]. 
+This small project of voice assistent uses ChatGPT in human's nature way. It's based on Coqui STT and TTS libraries. Third essential library you'll need is 'openai'. This library is a wrapper which sends questions and answears to ChatGPT servers. Due that, you have to be registered on [https://chat.openai.com/] and you'll need to paste to 'MyOpenAI.py' file your API key (YOUR_API_KEY). 
+Here are instructions: [https://www.codingthesmartway.com/how-to-use-chatgpt-with-python/]. 
 
 # Requirements
 
