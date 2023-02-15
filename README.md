@@ -5,15 +5,15 @@ Here are instructions: [https://www.codingthesmartway.com/how-to-use-chatgpt-wit
 
 # Requirements
 
-Except Coqui TTS and TTS libraries (and 'openai' library) installed standard way via 'pip', you need following dependencies: 
+Except Coqui's 'tts' and 'stt' libraries (and 'openai' library) installed standard way via 'pip', you need following dependencies: 
 
      pyaudio, webrtcvad, halo, num2words
      
-Also install 'aplay' audio player from linux repositories (if you don't have it on your system):
+Also you should install 'aplay' audio player from Linux repositories ('alsa-utils' package).. if you don't have it on your system. For example (Debian):
 
      apt-get install alsa-utils
 
-Note: There can be some problems with 'Numpy's version during TTS instalation due to which script may not works. Solution is upgrade numpy and numba after installation of all libraries:
+Note: There can be some problems with Numpy's version during TTS instalation due to which the script may not work. Solution is upgrade Numpy and Numba after installation of all libraries:
 
      pip install --upgrade numpy
      pip install --upgrade numba
