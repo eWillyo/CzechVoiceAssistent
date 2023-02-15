@@ -195,7 +195,7 @@ class MySTT:
                 print("Recognized: %s" % text)
             
                 if fnc != None:
-                    if fnc(text) == True: # upgrade
+                    if fnc(text) == True:
                         break
                 else:
                     break
