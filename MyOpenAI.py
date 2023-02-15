@@ -6,7 +6,7 @@ model_to_use="text-davinci-003" # most capable
 #model_to_use="text-babbage-001"
 #model_to_use="text-ada-001" # lowest token cost
 
-API_KEY = "YOUR_API_KEY"
+API_KEY = "YOUR_API_KEY" # here paste your API key from 'chat.openai.com'
 
 
 class MyOpenAI:
