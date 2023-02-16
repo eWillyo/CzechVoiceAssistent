@@ -5,7 +5,7 @@ Here are instructions: [https://www.codingthesmartway.com/how-to-use-chatgpt-wit
 
 # Requirements
 
-Except Coqui's 'tts' and 'stt' libraries (and 'openai' library) installed standard way via 'pip', you need following dependencies: 
+Except Coqui's 'tts' and 'stt' libraries (and 'openai' library) installed standard way via 'pip', you'll need following dependencies: 
 
      pyaudio, webrtcvad, halo, num2words, playsound
 
