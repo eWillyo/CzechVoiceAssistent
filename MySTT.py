@@ -214,5 +214,5 @@ class MySTT:
             
                 stream_context = self.model.createStream()
 
-        self.vad_audio.destroy()
+        #self.vad_audio.destroy()
 
