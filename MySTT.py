@@ -86,12 +86,6 @@ class Audio(object):
         self.stream.close()
         self.pa.terminate()
 
-    def pause_read(self):
-        self.stream.stop_stream()
-
-    def unpause_read(self):
-        self.stream.start_stream()
-
     frame_duration_ms = property(lambda self: 1000 * self.block_size // self.sample_rate)
 
     def write_wav(self, filename, data):
