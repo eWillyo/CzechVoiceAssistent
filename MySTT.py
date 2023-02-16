@@ -6,7 +6,7 @@ from halo import Halo
 import numpy as np
 
 
-model_name_stt = "czech.tflite"
+model_name_stt = "model.tflite"
 scorer_stt = "kenlm.scorer"
 DEFAULT_SAMPLE_RATE_STT = 16000
 VAD_stt = 3
