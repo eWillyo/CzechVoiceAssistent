@@ -1,5 +1,4 @@
-import os
-import re
+immport re
 
 from pathlib import Path
 from TTS.utils.manage import ModelManager
@@ -8,6 +7,8 @@ from TTS.api import TTS
 
 #import numbers
 from num2words import num2words
+
+from playsound import playsound
 
 
 model_name_tts = "tts_models/cs/cv/vits" #czech
@@ -27,12 +28,9 @@ class MyTTS:
         self.synthesizer = Synthesizer(model_path, config_path)
     
     def say_something(self, txt):
-        
         wav = self.synthesizer.tts(self.nm2ws(txt))
         self.synthesizer.save_wav(wav, ".temp.wav")
-        # temp :-)
-        os.system("aplay .temp.wav")
-        os.system("rm .temp.wav")
+        playsound(".temp.wav")
         
     def nm2ws(self, text):
         result = []
