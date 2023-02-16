@@ -35,6 +35,15 @@ class MyTTS:
     def nm2ws(self, text):
         result = []
         
+        # replace unknown characters
+        text.replace("\"", " ")
+        text.replace("'", " ")
+        text.replace("&", " ")
+        text.replace("[", " ")
+        text.replace("]", " ")
+        text.replace("{", " ")
+        text.replace("}", " ")
+        
         for t in text.split():
             is_not_text, has_point, is_decimal = self.get_num_type(t)
 
