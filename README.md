@@ -7,11 +7,7 @@ Here are instructions: [https://www.codingthesmartway.com/how-to-use-chatgpt-wit
 
 Except Coqui's 'tts' and 'stt' libraries (and 'openai' library) installed standard way via 'pip', you need following dependencies: 
 
-     pyaudio, webrtcvad, halo, num2words
-     
-Also you should install 'aplay' audio player from Linux repositories ('alsa-utils' package).. if you don't have it on your system. For example (Debian):
-
-     apt-get install alsa-utils
+     pyaudio, webrtcvad, halo, num2words, playsound
 
 Note: There can be some problems with Numpy's version during TTS instalation due to which the script may not work. Solution is upgrade Numpy and Numba after installation of all libraries:
 
@@ -25,4 +21,4 @@ And of course you'll need microphone :-)
 
 
 
-Currently code works only on Linux (I use 'aplay' Linux player in code to play "text to words"). I work on that - I promiss!
+Currently, code works on Linux and Windows, as I promissed.
