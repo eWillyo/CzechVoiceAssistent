@@ -26,9 +26,9 @@ def answear(text):
 def respawn(text):
     if text == WAKE_UP_PHRASES[0] or text == WAKE_UP_PHRASES[1]:
         tts.say_something(ANSWEAR_PHRASES[random.randrange(len(ANSWEAR_PHRASES))])
-        stt.listening_STT()
+        #stt.listening_STT()
         stt.listening_STT(answear)
-        return False
+        return True
 
 if __name__ == "__main__":
     tts.init_TTS()

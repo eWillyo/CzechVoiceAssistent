@@ -86,6 +86,12 @@ class Audio(object):
         self.stream.close()
         self.pa.terminate()
 
+    def pause_read(self):
+        self.stream.stop_stream()
+
+    def unpause_read(self):
+        self.stream.start_stream()
+
     frame_duration_ms = property(lambda self: 1000 * self.block_size // self.sample_rate)
 
     def write_wav(self, filename, data):
@@ -106,6 +112,16 @@ class VADAudio(Audio):
     def __init__(self, aggressiveness=3, device=None, input_rate=None, file=None):
         super().__init__(device=device, input_rate=input_rate, file=file)
         self.vad = webrtcvad.Vad(aggressiveness)
+        # new
+        self.aggressiveness = aggressiveness
+        self.device = device
+        self.input_rate = input_rate
+        self.file = file
+
+    def restart(self):
+        self.destroy()
+        super().__init__(device=self.device, input_rate=self.input_rate, file=self.file)
+        self.vad = webrtcvad.Vad(self.aggressiveness)
 
     def frame_generator(self):
         """Generator that yields all audio frames from microphone."""
@@ -174,6 +190,9 @@ class MySTT:
                                   input_rate=DEFAULT_SAMPLE_RATE_STT)
     
     def listening_STT(self, fnc = None):
+        
+        self.vad_audio.restart()
+
         print("Listening (ctrl-C to exit)...")
         frames = self.vad_audio.vad_collector()
 
@@ -181,13 +200,12 @@ class MySTT:
         spinner = Halo(spinner='line')
     
         stream_context = self.model.createStream()
-        #wav_data = bytearray()
+        
         for frame in frames:
             if frame is not None:
                 if spinner: spinner.start()
             
                 stream_context.feedAudioContent(np.frombuffer(frame, np.int16))
-                #yield None
             else:
                 if spinner: spinner.stop()
             
@@ -195,10 +213,12 @@ class MySTT:
                 print("Recognized: %s" % text)
             
                 if fnc != None:
-                    if fnc(text) == True:
+                    if fnc(text) == True: 
                         break
                 else:
                     break
             
                 stream_context = self.model.createStream()
+
+        self.vad_audio.destroy()
 
