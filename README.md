@@ -16,7 +16,7 @@ Note: There can be some problems with Numpy's version during TTS instalation due
      
 One of last things you'll need is Czech language model for STT library (Czech STT v0.3.0). Download it from here: [https://coqui.ai/models]. You'll need 'kenlm.scorer' and 'model.tflite' files. Place them to directory with project.  
      
-And of course you'll need microphone :-)
+And of course you'll need a microphone :-)
 
 
 
