@@ -28,34 +28,32 @@ class MyTTS:
         self.synthesizer = Synthesizer(model_path, config_path)
     
     def say_something(self, txt):
-        wav = self.synthesizer.tts(self.nm2ws(txt))
+        wav = self.synthesizer.tts(self._nm2ws(txt))
         self.synthesizer.save_wav(wav, ".temp.wav")
         playsound(".temp.wav")
         
-    def nm2ws(self, text):
+    def _nm2ws(self, text):
         result = []
         
-        # replace unknown characters
-        text.replace("\"", " ")
-        text.replace("'", " ")
-        text.replace("&", " ")
-        text.replace("[", " ")
-        text.replace("]", " ")
-        text.replace("{", " ")
-        text.replace("}", " ")
-        
         for t in text.split():
-            is_not_text, has_point, is_decimal = self.get_num_type(t)
+            is_not_text, has_point, is_decimal, is_negative = self._get_num_type(t)
+            
+            if is_negative == True:
+                result.append("mínus")
+                t = t[1:]
 
             try:
                 if is_not_text and not is_decimal and not has_point:
                     t = num2words((int)(t), lang='cz')
                 
                 if is_not_text and has_point and not is_decimal:
-                    t = t.replace('.', '')
+                    t = t.replace('.', ' ')
                     t = num2words((int)(t), lang='cz')#, to='ordinal')
                 
                 if is_not_text and is_decimal:
+                    t = t.replace(',', '.')
+                    if t[-1] == '.':
+                        t = t[:-2]
                     t = num2words((float)(t), lang='cz')
                 
             except ValueError:
@@ -65,13 +63,20 @@ class MyTTS:
             
         return ' '.join(result)
     
-    def get_num_type(self, word):
+    def _get_num_type(self, word): 
         is_not_text = True
         has_point = False
         is_decimal = False
+        is_negative = False
+        
+        if word[0] == '-':
+            is_negative = True
         
         for c in word:
-            if c == '.':
+            if c == '-' and is_negative == True:
+                continue
+            
+            if c == ',' or c == '.':
                 has_point = True
                 continue
             
@@ -80,10 +85,8 @@ class MyTTS:
                 break
             
             if c.isdigit() == True:
-                is_not_text = True
                 if has_point == True:
                     is_decimal = True
                     
-        return (is_not_text, has_point, is_decimal)
-                
+        return (is_not_text, has_point, is_decimal, is_negative)
                 
