@@ -55,7 +55,6 @@ class MyTTS:
                     if t[-1] == '.':
                         t = t[:-2]
                     t = num2words((float)(t), lang='cz')
-                
             except ValueError:
                 pass
             
