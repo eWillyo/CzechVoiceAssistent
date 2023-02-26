@@ -18,7 +18,7 @@ class MyOpenAI:
             model=self.model,
             prompt=query,
             temperature=0,
-            max_tokens=200
+            max_tokens=250
             )
         return str.strip(response['choices'][0]['text']), response['usage']['total_tokens']
 
