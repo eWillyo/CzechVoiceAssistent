@@ -9,7 +9,7 @@ import random
 INIT_PHRASE = "Hlasový asistent Malina je připraven"
 WAKE_UP_PHRASES = ["malino", "malina"]
 
-ANSWEAR_PHRASES = ["Ano?", "Poslouchám...", "Co si přeješ?", "S čím ti můžu pomoct?", "Co potřebuješ?", "Máš dotaz?"]
+ANSWER_PHRASES = ["Ano?", "Poslouchám...", "Co si přeješ?", "S čím ti můžu pomoct?", "Co potřebuješ?", "Máš dotaz?"]
 
 
 tts = MyTTS.MyTTS(MyTTS.model_name_tts)
@@ -17,7 +17,7 @@ stt = MySTT.MySTT(MySTT.model_name_stt, MySTT.scorer_stt, MySTT.VAD_stt)
 openAI = MyOpenAI.MyOpenAI(MyOpenAI.model_to_use, MyOpenAI.API_KEY)
 
 
-def answear(text):
+def answer(text):
     (res, usage) = openAI.chatGPT(text)
     tts.say_something(res)
     return True
@@ -25,9 +25,9 @@ def answear(text):
 
 def respawn(text):
     if text == WAKE_UP_PHRASES[0] or text == WAKE_UP_PHRASES[1]:
-        tts.say_something(ANSWEAR_PHRASES[random.randrange(len(ANSWEAR_PHRASES))])
+        tts.say_something(ANSWER_PHRASES[random.randrange(len(ANSWER_PHRASES))])
         #stt.listening_STT()
-        stt.listening_STT(answear)
+        stt.listening_STT(answer)
         return True
 
 if __name__ == "__main__":
