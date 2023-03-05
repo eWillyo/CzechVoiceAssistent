@@ -1,6 +1,7 @@
 import openai
 
-model_to_use="text-davinci-003" # most capable
+model_to_use="gpt-3.5-turbo"
+#model_to_use="text-davinci-003" # most capable
 #model_to_use="text-curie-001"
 #model_to_use="text-babbage-001"
 #model_to_use="text-ada-001" # lowest token cost
