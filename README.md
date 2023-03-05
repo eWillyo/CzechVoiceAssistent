@@ -23,4 +23,4 @@ And of course you'll need a microphone :-)
 
 Currently, code works on Linux and Windows, as I promissed.
 
-NEW: Used new OpenAI model "gpt-3.5-turbo" which should be newer and faster.
+NEW: Used different OpenAI model "gpt-3.5-turbo" which should be newer and faster.
